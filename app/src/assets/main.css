@@ -1,0 +1,73 @@
+.__navbar {
+  background: #292a31;
+  height: 70px;
+  padding: 0 8rem;
+}
+.header-link {
+  color: #fff;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 4rem;
+  margin: auto;
+  width: 100%;
+  gap: 2rem;
+}
+
+.stats-bar {
+  width: 30%;
+  padding: 0.5rem;
+}
+.stats-container {
+  margin-top: 0px;
+  margin-bottom: 0.5rem;
+}
+
+.stat__value {
+  padding: 1rem;
+}
+
+.content-space {
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.word-count-table {
+  height: 540px;
+  overflow-y: scroll;
+}
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.shadow {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.shadow-line {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.dashboard-items {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.network-analysis {
+  width: 100%;
+}
+
+#search-word-frequency-button {
+  width: 100px;
+  margin: 0px 0px 0px 8px;
+}
