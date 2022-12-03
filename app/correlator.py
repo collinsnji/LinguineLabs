@@ -2,11 +2,24 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 import re
+import os
 from scipy.stats import pearsonr
 from collections import namedtuple
-from tqdm import tqdm
 
 def create_sections(text, section_size):
+  """Divide a text into sections of equal length
+  
+  Args:
+    text (str): The text to divide
+    section_size (int): The size of each section
+    
+  Yields:
+    str: A section of the text
+    
+  Example:
+    >>> for section in create_sections('This is a test', 2):
+    >>>   print(section)
+  """
   # Credit: https://stackoverflow.com/a/22571421/6544244
   chunk_size = len(text)//section_size
   if len(text) % section_size: chunk_size += 1
@@ -19,12 +32,28 @@ def create_sections(text, section_size):
       yield ''.join(accumulator)
 
 def get_vectorization(file_name, max_features=5000, expanded_stop_words=True, ngrams_range=(1, 1)):
+  """Get the vectorization of a file
+
+  Args:
+      file_name (str): The name of the file to vectorize
+      max_features (int, optional): The maximum number of features to use. Defaults to 5000.
+      expanded_stop_words (bool, optional): Whether to use the expanded stop words list. Defaults to True.
+      ngrams_range (tuple, optional): The range of ngrams to use. Defaults to (1, 1).
+  
+  Returns:
+      pd.DataFrame: The vectorized dataframe
+  
+  Example:
+      >>> df = get_vectorization('data/dataset.txt')
+      >>> df.head()
+  """
   stop_words = 'english'
   if expanded_stop_words:
-    with open('stopwords.txt', 'r') as f:
-      stop_words = f.read().splitlines()
-      stop_words = list(set([word.lower() for word in stop_words]))
-      stop_words = ENGLISH_STOP_WORDS.union(stop_words)
+    if os.path.exists('stopwords.txt'):
+      with open('stopwords.txt', 'r') as f:
+        stop_words = f.read().splitlines()
+        stop_words = list(set([word.lower() for word in stop_words]))
+        stop_words = ENGLISH_STOP_WORDS.union(stop_words)
   
   if type(ngrams_range) == tuple and len(ngrams_range) == 2:
     ngrams_range = ngrams_range
@@ -131,11 +160,7 @@ def get_all_correlations(dataframe, word):
   return correlations
 
 if __name__ == "__main__":
-  f = "data/raw/books1/epubtxt/2-ac-fallen-angels.epub.txt"
-  # f = "/Volumes/Rayla/Projects/SeniorProject/data/raw/merged_data.txt"
+  f = "/tmp/frankenstein-or-the-modern-prometheus.txt"
   df = get_vectorization(f, max_features=None)
-  print(get_correlation(df, ['dream', 'angels']))
-  # set top 10 words to correlate with 'dreams' that are significant
-  # top_10 = [x for x in get_all_correlations(df, 'trauma')[:30] if x.is_significant]
-  # for x in top_10:
-  #   print(x)
+  print(get_correlation(df, ['man', 'father']))
+

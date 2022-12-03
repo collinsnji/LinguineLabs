@@ -1,0 +1,11 @@
+runtime: python310
+entrypoint: gunicorn app:server --chdir app/
+
+handlers:
+- url: /static
+  static_dir: assets
+
+- url: /.*
+  script: auto
+  secure: always
+  redirect_http_response_code: 301

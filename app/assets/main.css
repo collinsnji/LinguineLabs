@@ -3,14 +3,28 @@
   height: 70px;
   padding: 0 8rem;
 }
+
 .header-link {
   color: #fff;
 }
+
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   text-decoration: none;
+}
+
+.file-upload__input {
+  position: relative;
+  width: 30%;
+  height: 30px;
+  /* line-height: 30px; */
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px auto;
 }
 
 .main-content {
@@ -23,9 +37,11 @@
 }
 
 .stats-bar {
-  width: 30%;
-  padding: 0.5rem;
+  min-width: 25%;
+  height: fit-content;
+  padding: 0px 0.5rem;
 }
+
 .stats-container {
   margin-top: 0px;
   margin-bottom: 0.5rem;
@@ -53,7 +69,8 @@
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .shadow-line {
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .dashboard-items {
@@ -70,4 +87,23 @@
 #search-word-frequency-button {
   width: 100px;
   margin: 0px 0px 0px 8px;
+}
+
+.correlation-table {
+  width: 100%;
+  overflow-x: scroll;
+  padding-bottom: 1rem;
+}
+
+.search-word-correlation {
+  margin: 0 auto 1rem;
+}
+
+#search-word-correlation-button {
+  margin: 0px 0px 0px 8px;
+}
+
+.panel-title {
+  color: #5755d9;
+  font-weight: 'bold';
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linguine | About</title>
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <div class="navbar __navbar">
+    <div class="navbar-section">
+      <a class="btn btn-link header-link" href="#">Home</a>
+      <a class="btn btn-link header-link" href="/about">About</a>
+      <a class="btn btn-link header-link" href="/interpretation">Interpretation</a>
+    </div>
+    <div class="navbar-center">
+      <h2 class="navbar-brand mr-2 logo">Linguine Labs</h2>
+    </div>
+    <div class="navbar-section">
+      <div class="input-group input-inline">
+        <a class="btn btn-link header-link" href="//github.com/collinsnji/linguine">GitHub</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero hero-sm bg-gray">
+    <div class="hero-body">
+      <h1>About</h1>
+      <p>Linguine is a computational linguistics application for the purpose of exploring intricate details in text
+        that could be missed through usual methods of close reading.
+      </p>
+    </div>
+  </div>
+  <p>It is a work in progress, and is currently in the alpha stage of development.</p>
+</body>
+
+</html>
