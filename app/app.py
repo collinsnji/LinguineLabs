@@ -5,6 +5,7 @@ from dash import Dash
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
+import dash_loading_spinners as dls
 from flask import Flask, render_template
 from helpers import write_file
 from render_app import RunApplication
@@ -32,6 +33,7 @@ external_stylesheets = [{
 # Initialize the app
 server = Flask(__name__, static_folder='assets')
 app = Dash(server=server, external_stylesheets=external_stylesheets)
+app.title = 'Linguine - Text Analysis App'
 AppData = defaultdict(lambda: None)
 
 # Route other pages
@@ -116,7 +118,7 @@ app.layout = html.Div(children=[
   html.Div(className='container px-0', children=[
     html.Div(className='navbar __navbar', children=[
       html.Div(className='navbar-section', children=[
-        html.A(className='btn btn-link header-link', href='#', children='Home'),
+        html.A(className='btn btn-link header-link', href='/', children='Home'),
         html.A(className='btn btn-link header-link', href='/about', children='About'),
         html.A(className='btn btn-link header-link', href='/interpretation', children='Interpretation'),
       ]),
@@ -136,7 +138,11 @@ app.layout = html.Div(children=[
         multiple=False
       ),
     ]),
-    html.Div(id='linguine-app', children=[])
+    dls.Bars(
+      html.Div(id='linguine-app', children=[]),
+      fullscreen=True,
+      show_initially=False
+    )
   ])
 ])
 

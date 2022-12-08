@@ -4,9 +4,6 @@ from dash import dcc, html
 from helpers import generate_table
 from app_functions import plot_word_frequency, network_visualization, plot_word_correlations
 
-def make_list(*args):
-  return html.Ul(className='list', children=[html.Li(className='list__item', children=[arg]) for arg in args])
-
 def help_popover(help_text, direction='top'):
   return html.Div(className=f'popover popover-{direction} help-icon', children=[ '?',
     html.Div(className='popover-container', children=[
@@ -29,12 +26,10 @@ def RunApplication(AppData):
     html.Div(className='stats-bar shadow panel', children=[
       html.Div(className='panel-header', children=[
         html.Div(className='panel-title', children=['Summary Stats']),
-        help_popover(f'''The summary stats panel provides a quick overview of the document.
-          {make_list(
-            'the total number of words in the document.',
-            'most frequent terms in the corpus.',
-            'readability statistics and so on')
-          }''',
+        help_popover('''The summary stats panel provides a quick overview of the document.
+            - the total number of words in the document.,
+            - most frequent terms in the corpus.,
+            - readability statistics and so on''',
           direction='right'
         )
       ]),
@@ -113,13 +108,13 @@ def RunApplication(AppData):
         html.Div(className='column col-6 flex-grow-1 shadow panel', children=[
           html.Div(className='panel-header', children=[
             html.Div(className='panel-title', children=['Word Trends']),
-            help_popover(f'''The {html.B(children=['Trends'])} panel shows the relative frequency of words in the corpus, broken down by section. The search box allows you to search and plot 
-              the relative frequency of any word in the corpus.
-              {make_list(
-                'enter multiple terms separated by a comma to plot multiple terms.',
-                'click on each plotted term to toggle its visibility on the graph.'
-              )}
-              ''', direction='left')
+            help_popover(f'''The panel shows the relative frequency of words in the corpus, broken down by section.
+            The search box allows you to search and plot 
+                the relative frequency of any word in the corpus.
+                - enter multiple terms separated by a comma to plot multiple terms.
+                - click on each plotted term to toggle its visibility on the graph.
+              ''',
+              direction='left')
           ]),
           html.Div(className='search-word-frequency input-group', children=[
             dcc.Input(className='form-input', id='search-word-frequency-input', type='text', value=''),
