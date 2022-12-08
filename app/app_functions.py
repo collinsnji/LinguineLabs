@@ -29,7 +29,7 @@ def get_data_and_stats(file_path):
   bigram_freq_df = bigram_freq_df.T.reset_index()
   bigram_freq_df.columns = ['bigram', 'count']
   bigrams_df = bigram_freq_df.sort_values(by='count', ascending=False)
-  with open(file_path, 'r') as f:
+  with open(file_path, 'r', encoding='utf8', errors='ignore') as f:
     text = f.read()
   
   grade_levels = ['Kindergarten', '1st Grade', '2nd Grade', '3rd Grade', 

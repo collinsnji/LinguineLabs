@@ -5,7 +5,10 @@
 }
 
 .header-link {
-  color: #fff;
+  color: #fff !important;
+}
+.header-link:hover {
+  color: #ff7de3 !important;
 }
 
 .logo {
@@ -58,8 +61,8 @@
 
 .word-count-table {
   height: 540px;
-  overflow-y: scroll;
 }
+
 .flex-grow-1 {
   flex-grow: 1 !important;
 }
@@ -91,7 +94,6 @@
 
 .correlation-table {
   width: 100%;
-  overflow-x: scroll;
   padding-bottom: 1rem;
 }
 
@@ -103,7 +105,31 @@
   margin: 0px 0px 0px 8px;
 }
 
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .panel-title {
   color: #5755d9;
   font-weight: 'bold';
+  display: inline-flex;
+}
+
+.help-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #5c6cda;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: help;
+}
+
+.help-text {
+  color: #020206;
+  margin: auto;
 }

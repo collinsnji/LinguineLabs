@@ -125,7 +125,7 @@ app.layout = html.Div(children=[
       ]),
       html.Div(className='navbar-section', children=[
         html.Div(className='input-group input-inline', children=[
-          html.A(className='btn btn-link header-link', href='//github.com/collinsnji/linguine', children='GitHub')
+          html.A(className='btn btn-link header-link', href='//github.com/collinsnji/LinguineLabs', children='GitHub')
         ])
       ])
     ]),

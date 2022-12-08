@@ -68,7 +68,7 @@ def get_vectorization(file_name, max_features=5000, expanded_stop_words=True, ng
     max_features = max_features,
     preprocessor=lambda x: re.sub(r'_|\d+', '', x.lower()).lower()
   )
-  with open(file_name) as f:
+  with open(file_name, encoding='utf8', errors='ignore') as f:
     corpus = f.read()
     corpus = list(create_sections(corpus, 10))
   try:
